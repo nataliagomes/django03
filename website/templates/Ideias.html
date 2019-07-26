@@ -1,0 +1,12 @@
+{% extends 'shared/layout.html' %}
+{% block conteudo %}
+
+<h1>Ideias Malucas</h1>
+<h2> Cadrastre-se </h2>
+{{msg}}
+<form action="/" method="post">
+    {% csrf_token %}
+
+</form>
+
+{% endblock %}

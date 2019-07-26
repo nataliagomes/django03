@@ -4,6 +4,7 @@ from website.models import Pessoa
 # Create your views here.
 
 def index(request):
+    #vaicadrastrar 
     contexto = {}
     if request.method == 'POST':
         pessoa = Pessoa()
@@ -13,14 +14,24 @@ def index(request):
         pessoa.genero = request.POST.get('genero')
         pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
-        contexto = {'msg': 'Parabéns :)'}
+        contexto = {'msg': 'Cadrastro Realizado com Sucesso'}
 
     return render(request, 'index.html', contexto)
 
 
 def sobre(request):
-    pessoa = Pessoa.objects.all()
+    #vailistarideias
+    pessoa = Pessoa.objects.filter(ativo=True).all()
     contexto = {
         'pessoas':pessoa
     }
     return render(request, 'sobre.html', contexto)
+
+def login(request):
+    if request.method:'POST' :
+        email_form=request.POST.get('email')
+        Pessoa = Pessoa.objects.filter(email=email_form).frist ()
+
+        print ('')
+
+
